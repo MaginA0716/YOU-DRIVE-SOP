@@ -7,24 +7,24 @@ mode: step-by-step
 # Foundry Initializing (SOP 2.0 Foundry)
 
 ## Overview
-本技能定义了“SOP 2.0 母库”的基座结构与自演进闭环。母库作为中央实验室，负责资产的“去业务化提纯”与“元能力（Meta-Skills）”的持续迭代。
+本技能负责初始化 **YOU-DRIVE-SOP** 的中央母库（Foundry）。不同于传统的物理建档，本初始化流程采用“内容驱动”模式，在创建目录的同时，自动注入框架预置的全局标准（Constitution）与生产协议（Schemas）。
 
 ## Implementation Workflow (Step-by-Step)
 
 ### 1. Structure Initialization
-- [ ] **建立核心层**：创建 `.gemini/skills/` (meta, common) 与 `openspec/` (schemas, decisions)。
-- [ ] **建立资产层**：创建 `patterns/` 代码图纸目录。
+- [ ] **建立物理基座**：创建 `.gemini/skills/`、`openspec/decisions/`、`openspec/schemas/` 以及 `patterns/` 目录。
+- [ ] **物理去冗余**：确保 `skills/` 下无 `meta/` 或 `common/` 等二级目录，维持扁平化架构。
 
-### 2. Standard & Constitution
-- [ ] **生成全局标准**：创建 `.gemini/global_standard.md` 并注入执行流规约。
-- [ ] **生成协议模板**：在 `openspec/schemas/` 下建立 env, logic, decision 初始模板。
+### 2. Standard & Constitution Injection
+- [ ] **注入全局行为宪法**：创建 `.gemini/global_standard.md`，并同步注入 `YOU-DRIVE-SOP` 预置的中文版“对齐-检索-提纯-演进”执行流规约。
+- [ ] **注入协议模板**：在 `openspec/schemas/` 下同步生成 `env_schema.md` (环境)、`logic_schema.md` (提纯)、`decision_schema.md` (决策) 的工业级模板。
 
 ### 3. Verification & Synthesis
 - [ ] **物理扫描**：执行 `tree` 验证目录树完整性。
-- [ ] **指令测试**：确认 `activate_skill` 能正确加载扁平化技能库。
-- [ ] **终期质量审计**：通读生成的标准与协议，确保逻辑一致性与字数厚度符合 SOP 2.0 工业基准。
+- [ ] **指令测试**：确认 `activate_skill` 能正确加载扁平化后的技能库。
+- [ ] **终期质量审计**：通读生成的标准与协议，确保逻辑闭环且字数厚度符合开源框架标准。
 
 ## Red Flags
-- 物理隔离层缺失或命名不规范。
-- 擅自修改 `global_standard.md` 而未记录 ADR。
-- 在 `mode: step-by-step` 模式下跳过用户确认。
+- 初始化产生空文件（必须包含实质性规约内容）。
+- 擅自创建 `meta/` 或 `common/` 等无法被 CLI 直接加载的物理嵌套目录。
+- 在 `mode: step-by-step` 模式下未获得用户确认即执行。

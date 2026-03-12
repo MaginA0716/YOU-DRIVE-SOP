@@ -31,15 +31,15 @@
 - **WHEN** AI 使用 `legacy-extractor` 识别出一段高价值业务代码。
 - **THEN** AI 禁止在本地 `logic.md` 中展开代码，而是引导用户激活 `meta-distiller` 将该资产反哺至母库。
 
-### Requirement: 架构决策协议 (decision_schema)
-架构决策协议 SHALL 规范 ADR 的编写格式，确保所有演进记录均包含完整的背景和后果评估。
-- ADR 必须包含 Status (Proposed, Accepted, etc.)。
-- 必须包含 Consequences 字段。
-- 必须支持关联子库（Related Project）字段。
+### Requirement: 母库初始化 (foundry-initializing)
+母库初始化 SHALL 具备全量规约继承能力并保持物理极简。
+- **模板注入**：初始化不再创建空文件，必须同步注入框架内置的 `Global Standard` 与 `Schemas` 模板内容。
+- **物理去冗余**：技能目录必须保持扁平，禁止在 `skills/` 下创建 `meta/`、`common/` 等嵌套物理目录。
+- **成功反馈**：初始化完成后，必须提供包含工具链状态与规约摘要的总结报告。
 
-#### Scenario: 记录跨库技术妥协
-- **WHEN** 在子库中因为旧版 Webpack 限制而选择了替代方案。
-- **THEN** 系统依据 `decision_schema` 在子库生成一份 ADR，详细记录该妥协的背景及其对母库资产同步的影响。
+#### Scenario: 即插即用的母库建立
+- **WHEN** 用户执行 `foundry-initializing`。
+- **THEN** 系统在创建目录的同时，自动填充打磨好的核心协议文件，使用户无需手动配置即可开始资产沉淀。
 
 ### Requirement: 生产安全审计 (Production Safety Audit)
 系统 SHALL 对所有物理写操作执行实时审计与熔断保护。
