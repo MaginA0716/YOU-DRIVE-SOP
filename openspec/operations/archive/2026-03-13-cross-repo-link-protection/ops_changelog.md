@@ -19,7 +19,8 @@
 | 13:38 | UPDATE | `workshop-initializing/SKILL.md` | 注入「Git 忽略加固」自动化步，移除所有占位符。 | `git checkout HEAD^` |
 | 13:40 | UPDATE | `.gemini/ops_changelog.md` | 物理合并今日全量审计流水，修复之前的覆盖失误。 | N/A |
 | 13:45 | UPDATE | `foundry-protocols/spec.md` | 固化归档镜像结构、治理判定及日志增量铁律。 | `git checkout HEAD^` |
-| 13:50 | UPDATE | `.gemini/ops_changelog.md` | 记录规则即时固化过程，确保 SOP 2.0 运行无偏。 | N/A |
+| 14:10 | CLEANUP | `.gemini/ops_changelog.md` | 移除之前中断任务留下的虚假迁移记录，准备重启。 | N/A |
+| 14:12 | VERIFY | `gh cli` | 物理核实 `gh` 已安装并准备好进行 Issue 闭环。 | N/A |
 
 ---
 *YOU-DRIVE-SOP - 驱动规约，掌握智力。*
