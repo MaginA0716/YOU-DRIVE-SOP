@@ -2,6 +2,8 @@
 
 > **"AI 驱动逻辑，你驱动规约。"**
 
+- **GitHub Repository**: [https://github.com/catx1726/YOU-DRIVE-SOP](https://github.com/catx1726/YOU-DRIVE-SOP)
+
 YOU-DRIVE-SOP 是一个开源框架，旨在帮助开发者构建、精炼并演进属于自己的 AI 驱动标准作业程序（SOP）。它将您的开发过程转化为一个自主演进的实验室，使每一项任务都能为不断增长的可重用智力库做出贡献。
 
 ---

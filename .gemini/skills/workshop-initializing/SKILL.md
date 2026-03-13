@@ -11,7 +11,11 @@ mode: step-by-step
 
 ## Implementation Workflow (Step-by-Step)
 
-### 1. Link Establishing
+### 1. Link Establishing & Permission Check
+- [ ] **Windows 权限预检**：
+  - **WHEN** 运行环境为 Windows。
+  - **ACTION** 尝试创建一个临时目录链接进行验证。
+  - **RECOVERY** 若报错 `Access Denied (Error 5)`，AI 必须向用户显示：『检测到 Windows 权限受限，请确保已开启 **“开发者模式”** 或以 **“管理员身份运行”**。详细操作请参阅 `GETTING_STARTED.md` 的故障排除章节。』
 - [ ] **物理链路挂载**：执行 `gemini skills link {{FOUNDRY_ROOT}}\.gemini\skills --scope workspace --consent`。
 - [ ] **创建 link.json**：在子库根目录写入母库绝对路径存根 `{"foundryPath": "{{FOUNDRY_ROOT}}"}`。
 

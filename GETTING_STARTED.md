@@ -10,7 +10,7 @@
 
 1. **克隆并进入目录**：
    ```bash
-   git clone <repo-url> my-foundry
+   git clone https://github.com/catx1726/YOU-DRIVE-SOP.git my-foundry
    cd my-foundry
    ```
 
@@ -101,3 +101,19 @@
 - **先审批后入库**：在 `distill_stage` 中多看一眼，确保每一份进入母库的资产都是纯净的。
 
 *Happy Distilling & Contributing!*
+
+---
+
+## 🛠️ 故障排除 (Troubleshooting)
+
+### Windows 环境下 "Access Denied (Error 5)" 错误
+如果在执行 `gemini skills link` 时遇到权限错误，这通常是因为 Windows 限制了非管理员创建物理链路的能力。
+
+**解决方案**：
+1. **开启开发者模式（推荐）**：
+   - 进入 Windows **设置** > **隐私和安全性** > **面向开发人员**。
+   - 开启 **“开发人员模式”**。这将允许在无需管理员权限的情况下创建符号链接。
+2. **管理员权限运行**：
+   - 右键点击终端图标（PowerShell/CMD/Terminal），选择 **“以管理员身份运行”**。
+3. **安全软件白名单**：
+   - 确保您的杀毒软件未拦截 `powershell.exe` 的 `New-Item` 操作。
