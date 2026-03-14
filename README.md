@@ -2,6 +2,18 @@
 
 > **"AI 驱动逻辑，你驱动规约。"**
 
+---
+
+## 🚀 AI 代理登舰区 (AI AGENT ONBOARDING)
+
+**如果您是首次进入本项目的 AI 代理，或者这是一个新的对话会话：**
+
+1. **必须物理读取**：根目录下的 [GEMINI.md](./GEMINI.md) (或 [AGENTS.md](./AGENTS.md))。
+2. **执行指令**：『请根据 `SOP_CORE_MANUAL.md` 的规范，执行母库物理健康自检。』
+3. **行为准则**：本项目严禁模拟，所有操作必须通过 `meta-safe-executor` 并记录审计日志。
+
+---
+
 - **GitHub Repository**: [https://github.com/catx1726/YOU-DRIVE-SOP](https://github.com/catx1726/YOU-DRIVE-SOP)
 
 YOU-DRIVE-SOP 是一个开源框架，旨在帮助开发者构建、精炼并演进属于自己的 AI 驱动标准作业程序（SOP）。它将您的开发过程转化为一个自主演进的实验室，使每一项任务都能为不断增长的可重用智力库做出贡献。

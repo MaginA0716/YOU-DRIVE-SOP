@@ -14,6 +14,8 @@
 - **OpenSpec (Fission-AI)**：提供变更驱动的生命周期管理（治理底座）。
 - **Superpowers (obra)**：提供原子化技能（Skills）与严苛的工程习惯（肌肉）。
 
+> **智力底座规约**：关于上述引擎的底层物理逻辑，请参阅 [OpenSpec Core Mechanics](openspec/specs/upstream-lineage/openspec-core.md) 与 [Superpowers Skill Mechanics](openspec/specs/upstream-lineage/superpowers-core.md)。
+
 ### 0.2 为什么基于规约 (Why Protocols?)
 1. **Prompt 的脆弱性**：自然语言指令容易随上下文长度增加而“腐烂”。**物理规约是刚性的**。
 2. **逻辑与 UI 的分离**：通过 `logic_schema`，我们将智力从具体的、易变的视图中剥离，使其能够反哺母库。
@@ -139,6 +141,27 @@ YOU-DRIVE-SOP 的核心竞争力在于其**自演进能力**：
 - **母库端 (Foundry)**：通过 `foundry-initializing` 执行“源码级对齐”，深度阅读 `tools/` 下的上游引擎源码。
 - **子库端 (Workshop)**：通过 `workshop-initializing` 执行“契约级对齐”，强制读取母库的 `SOP_CORE_MANUAL.md`。
 - **价值**：确保了规约的单点维护与全链路同步。
+
+---
+
+## 智力资产全景循环图 (The Master Map)
+
+理解本系统运行的物理轨迹是成为合格“驾驶员”的关键：
+
+```text
+[ 源码层: tools/ ] 
+      |  (Step 0: Upstream Deep-Dive)
+      v
+[ 规约层: openspec/specs/upstream-lineage/ ] <--- [ 宪法: .gemini/global_standard.md ]
+      |  (SOP 2.0 逻辑提炼)
+      v
+[ 资产层: patterns/ ] <--- [ 技能: .gemini/skills/ ]
+      |  (物理图纸 + 执行引擎)
+      v
+[ 实战层: Workshop ] 
+      |  (任务 Apply + 逻辑 Distill)
+      +-----> 反哺 (Contribution) -----> [ 资产层 ]
+```
 
 ---
 
