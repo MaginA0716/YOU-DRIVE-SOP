@@ -15,22 +15,22 @@ mode: step-by-step
 - [ ] **OpenSpec & GitHub CLI 探测**：
   - **ACTION**：检查 `openspec --version` 和 `gh --version`。
   - **AUTH CHECK**：执行 `gh auth status`。
-  - **RECOVERY**：若未安装或未登录，AI 提示：『请安装 GitHub CLI (`winget install GitHub.cli`) 并执行 `gh auth login` 开启全自动 Issue 闭环。』
-- [ ] **Windows 权限预检**：
-  - **ACTION**：尝试创建一个临时目录链接进行验证。
-  - **RECOVERY**：若报错 `Access Denied (Error 5)`，AI 引导用户手动开启开发者模式。详细操作请参阅 `GETTING_STARTED.md` 的故障排除章节。
+- [ ] **Windows 权限预检 (Junction Permission)**：
+  - **ACTION**：尝试创建一个临时 Junction 验证权限。
+  - **RECOVERY (Error 5)**：若报错 `Access Denied`，AI **必须**停止执行并提示：
+    > **⚠️ [权限被拒绝]**
+    > 检测到 Windows 权限限制。请执行以下任一操作：
+    > 1. 开启 **Windows 开发者模式**（设置 > 隐私和安全性 > 开发人员）。
+    > 2. 以 **管理员身份** 重新启动命令行窗口。
 
 ### 2. Config Injection & Foundry Root Discovery
-- [ ] **Foundry Root 感应 (The Path-Discovery Handshake)**：
-  - **ACTION**：AI 优先通过 `read_file .gemini/link.json` (如果存在) 获取 `foundry_root`。
-  - **RECOVERY**：若不存在，AI 必须尝试向上递归寻找包含 `.gemini/global_standard.md` 的目录作为 `{{FOUNDRY_ROOT}}`。
-  - **FALLBACK**：若探测失败，AI 必须使用 `ask_user` 询问用户：『我无法自动定位您的母库 (Foundry)，请提供母库的绝对路径：』。
+- [ ] **Foundry Root 感应 (Path Normalization)**：
+  - **ACTION**：AI 探测母库路径后，**必须**执行物理绝对路径转换（如 `Resolve-Path`），严禁在 `link.json` 中存储相对路径。
 - [ ] **OpenSpec 初始化与补丁**：
   - **ACTION**：执行 `openspec init` (如果 `openspec/config.yaml` 不存在)。
   - **PATCH**：读取母库的 `{{FOUNDRY_ROOT}}\openspec\config_foundry.yaml`。
-  - **DYNAMIC REPLACEMENT**：将 `config_foundry.yaml` 中的所有 `{{FOUNDRY_ROOT}}` 物理占位符替换为当前探测到的真实路径，并写入子库的 `openspec/config.yaml`。
 - [ ] **物理链路挂载**：执行 `gemini skills link {{FOUNDRY_ROOT}}\.gemini\skills --scope workspace --consent`。
-- [ ] **创建 link.json**：记录母库绝对路径 `{"foundry_root": "{{FOUNDRY_ROOT}}"}`。
+- [ ] **创建 link.json**：存储归一化后的绝对路径 `{"foundry_root": "{{RESOLVED_ABS_PATH}}"}`。
 
 ### 3. Environmental & Spec Alignment
 - [ ] **规约全量同步 (The Full Spec Sync)**：
