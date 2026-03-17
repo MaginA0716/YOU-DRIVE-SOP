@@ -2,25 +2,4 @@
 
 | Time | Action | Target | Reason | Commit_ID | Undo_CMD |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 2026-03-15 17:40:00 | PROPOSE | harden-onboarding-and-full-spec-sync | Start fixing SOP breach and hardening onboarding flow. | 9238e03 | `git reset --hard HEAD~1` |
-| 2026-03-15 18:00:00 | IMPLEMENT | foundry-initializing | Add spec seeding capability for vcs-automation. | 9238e03 | `git checkout -- .gemini/skills/foundry-initializing/SKILL.md` |
-| 2026-03-15 18:02:00 | IMPLEMENT | workshop-initializing | Enable full spec sync and dynamic GEMINI.md status. | 9238e03 | `git checkout -- .gemini/skills/workshop-initializing/SKILL.md` |
-| 2026-03-15 18:04:00 | SYNC | openspec/specs | Full spec sync to foundry for global alignment. | 9238e03 | `rm -r openspec/specs/foundry-bootstrapping` |
-| 2026-03-15 18:05:00 | ARCHIVE | harden-onboarding-and-full-spec-sync | Archive completed onboarding hardening change. | 9238e03 | `mv openspec/changes/archive/2026-03-15-harden-onboarding-and-full-spec-sync openspec/changes/harden-onboarding-and-full-spec-sync` |
-| 2026-03-15 18:15:00 | FIX | .gemini/ops_changelog.md | Reformat logs to match meta-safe-executor standard. | 9238e03 | `git checkout -- .gemini/ops_changelog.md` |
-| 2026-03-15 18:30:00 | APPLY | openspec/config.yaml | Inject mandatory 'Setup' section into task template. | issue-027 | `git checkout -- openspec/config.yaml` |
-| 2026-03-15 18:35:00 | APPLY | .gemini/skills/openspec-propose/SKILL.md | Hardening Skill with Mandatory Setup instructions. | issue-027 | `git checkout -- .gemini/skills/openspec-propose/SKILL.md` |
-| 2026-03-15 18:45:00 | RESEARCH | tools/ | Deep dive into OpenSpec and Superpowers source code. | issue-027 | N/A |
-| 2026-03-15 18:55:00 | APPLY | openspec/specs/upstream-lineage/openspec-core.md | Update lineage with Kahn's algorithm logic. | issue-027 | `git checkout -- openspec/specs/upstream-lineage/openspec-core.md` |
-| 2026-03-15 19:00:00 | APPLY | openspec/specs/upstream-lineage/superpowers-core.md | Update lineage with 'Evidence before claims' logic. | issue-027 | `git checkout -- openspec/specs/upstream-lineage/superpowers-core.md` |
-| 2026-03-15 19:15:00 | PROPOSE | structure-sop-core-manual | Restructure core manuals to reflect SOP 2.0 Three-Layer Architecture. | issue-028 | `git reset --hard HEAD~1` |
-| 2026-03-15 19:20:00 | APPLY | SOP_CORE_MANUAL.md | Inject SOP 2.0 Three-Layer Architecture diagram. | issue-028 | `git checkout -- SOP_CORE_MANUAL.md` |
-| 2026-03-15 19:25:00 | APPLY | GETTING_STARTED.md | Refactor into Role-Based paths. | issue-028 | `git checkout -- GETTING_STARTED.md` |
-| 2026-03-15 19:35:00 | PROPOSE | harden-foundry-init-config | Harden foundry initialization to generate complete config seeds. | issue-029 | `git reset --hard HEAD~1` |
-| 2026-03-15 19:40:00 | APPLY | .gemini/skills/foundry-initializing/SKILL.md | Hardening Config Seeding logic. | issue-029 | `git checkout -- .gemini/skills/foundry-initializing/SKILL.md` |
-| 2026-03-17 09:00:00 | PROPOSE | harden-workshop-init-link | Harden workshop link discovery and Windows permission. | issue-030 | `git reset --hard HEAD~1` |
-| 2026-03-17 09:05:00 | APPLY | .gemini/skills/workshop-initializing/SKILL.md | Hardening link discovery logic. | issue-030 | `git checkout -- .gemini/skills/workshop-initializing/SKILL.md` |
-| 2026-03-17 09:10:00 | PROPOSE | inject-architecture-awareness | Inject architecture awareness into AI welcome sequence. | issue-031 | `git reset --hard HEAD~1` |
-| 2026-03-17 09:15:00 | APPLY | .gemini/skills/using-superpowers/SKILL.md | Injecting architecture role detection and reporting. | issue-031 | `git checkout -- .gemini/skills/using-superpowers/SKILL.md` |
-| 2026-03-17 09:20:00 | ARCHIVE | inject-architecture-awareness | Archive completed awareness injection. | issue-031 | `mv ...` |
-| 2026-03-17 09:25:00 | FIX | .gemini/ops_changelog.md | Global UTF-8 encoding fix for all previous logs. | issue-032 | `git checkout -- .gemini/ops_changelog.md` |
+| 2026-03-17 09:40:00 | ARCHIVE | .gemini/ops_changelog.md | Iteration closure: archived previous logs to operations library. | `git rev-parse HEAD` | N/A |
