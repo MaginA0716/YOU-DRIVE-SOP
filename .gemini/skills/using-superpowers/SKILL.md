@@ -19,15 +19,22 @@ This is not negotiable. This is not optional. You cannot rationalize your way ou
 
 # Initialization Check (The Onboarding Guard)
 
-在处理任何用户请求前，AI **必须** 首先通过物理探测确认当前工作区的 SOP 2.0 对齐状态：
+在处理任何用户请求前，AI **必须** 首先通过物理探测确认当前工作区的 SOP 2.0 角色与对齐状态：
 
-1. **探测逻辑**：检查根目录是否存在 `.gemini/global_standard.md` (宪法) 和 `.gemini/link.json` (链路)。
-2. **风险识别**：若上述文件缺失，意味着当前 AI 正处于“裸奔”状态（无规约约束、无母库链接）。
-3. **强制引导**：AI 必须立即中断后续动作，并向用户报告：
-   > **⚠️ [工作区未对齐]**
-   > 检测到当前工作区尚未完成 SOP 2.0 初始化。
-   > - 如果这是**母库 (Foundry)**：请执行 `activate_skill foundry-initializing`。
-   > - 如果这是**子库 (Workshop)**：请执行 `activate_skill workshop-initializing`。
+1. **探测逻辑与角色识别**：
+   - **Foundry (母库)**：若存在 `.gemini/global_standard.md` 且 **不存在** `.gemini/link.json`。
+   - **Workshop (子库)**：若存在 `.gemini/link.json`。
+   - **Unknown (未初始化)**：若上述文件均不存在。
+2. **强制报告仪式**：
+   - AI **必须** 在识别成功后向用户显式报告：
+     > 『✓ **架构感知**：已识别当前工作区角色为 **[Foundry/Workshop]**。规约已就绪。』
+3. **风险拦截与引导**：
+   - 若角色为 `Unknown`，意味着当前 AI 正处于“裸奔”状态（无规约约束）。
+   - AI **必须** 立即中断后续动作，并强制引导用户执行初始化：
+     > **⚠️ [工作区未对齐]**
+     > 检测到当前工作区尚未完成 SOP 2.0 初始化。
+     > - 如果这是**母库 (Foundry)**：请执行 `activate_skill foundry-initializing`。
+     > - 如果这是**子库 (Workshop)**：请执行 `activate_skill workshop-initializing`。
 
 # Using Skills
 
