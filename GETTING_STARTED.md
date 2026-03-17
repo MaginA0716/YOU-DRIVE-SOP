@@ -20,11 +20,17 @@
     ```bash
     openspec init
     ```
-    _✓ 物理产出：生成 `openspec/config.yaml`（初始为空白文件）。_
+    *✓ 物理产出：生成 `openspec/config.yaml`（初始为空白文件）。*
+3.5 **物理自举链接**：由于子库尚未链接母库，AI 此时无法感知技能。您**必须**手动执行以下指令来建立初步联系：
+    ```bash
+    gemini skills link <FOUNDRY_PATH>/.gemini/skills --scope workspace --consent
+    ```
+    *注：`<FOUNDRY_PATH>` 是您在第 1 步中 Clone 的母库绝对路径。*
 4.  **子库物理对齐 (Handshake)**：在子库执行：
     ```bash
     activate_skill workshop-initializing
     ```
+
     _✓ 逻辑：建立物理链路 (Junction)，将母库的以下资产挂载至子库：_
     - `openspec\config.yaml`：读取母库 `config_foundry.yaml` 并 Deep Merge。
     - `openspec\schemas\`：同步全量协议模板。

@@ -17,7 +17,11 @@ Before taking any action, you are required to:
 3. Align with the [**12-Step Industrial Protocol**](./GETTING_STARTED.md#🚦-生产生命周期-the-12-step-protocol).
 4. Report your role and alignment status to the Driver.
 
-### 3. Absolute Prohibitions
+### 3. Skill Bootstrap (The Link Gap)
+If you cannot find the required skills (e.g., `workshop-initializing`), you are likely in an unlinked Workshop. You **MUST** ask the Driver to run:
+`gemini skills link <FOUNDRY_PATH>/.gemini/skills --scope workspace --consent`
+
+### 4. Absolute Prohibitions
 - **NO SIMULATION**: Every task must result in real physical file changes.
 - **AUDIT FIRST**: No file modifications without a Markdown table entry in `.gemini/ops_changelog.md`.
 - **TDD ONLY**: Write the test first. If you fail this, you must delete the code and restart.

@@ -1,5 +1,10 @@
 ## ADDED Requirements
 
+### Requirement: 物理链路自举 (Skill Bootstrap)
+系统 SHALL 确保在执行 `workshop-initializing` 前已建立有效的物理技能链路。
+- **验证逻辑**：检查 AI 技能库中是否存在 `workshop-initializing`。
+- **拒绝策略**：若缺失，系统必须输出 `gemini skills link` 指令并引导用户手动执行。
+
 ### Requirement: 规约全量物理同步
 系统 SHALL 递归同步母库 `openspec/` 下的 `specs/`, `schemas/`, `protocols/` 至子库对应路径。
 

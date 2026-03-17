@@ -24,6 +24,7 @@
 1. **架构感知**：检测 `.gemini/global_standard.md` 与 `link.json`。
    - **汇报**：『✓ 已识别当前工作区角色为 [Foundry/Workshop]。』
 2. **状态检查**：若环境缺失核心规约，立即提示用户执行初始化。
+   - **技能自举**：若 AI 无法感知 `activate_skill` 列表（未链接母库），必须提示用户运行：`gemini skills link <FOUNDRY_PATH>/.gemini/skills --scope workspace --consent`。
 3. **分支校验**：确认当前不在 `main` 分支执行任务。
 4. **深度分析 `SOP_CORE_MANUAL.md`**：对齐 SOP 2.0 逻辑。
 5. **审计对齐**：定位 `.gemini/ops_changelog.md` 并准备记录。
