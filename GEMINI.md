@@ -21,12 +21,16 @@
 ## 🛠️ [CRITICAL-BOOT-SEQUENCE] AI 登舰自检清单
 **当你（AI）开启会话时，必须强制执行：**
 
-1. **状态检查**：检测根目录是否存在 `.gemini/global_standard.md`。若缺失，立即提示用户执行初始化。
-2. **深度分析 `SOP_CORE_MANUAL.md`**：对齐 SOP 2.0 逻辑。
-3. **审计对齐**：定位 `.gemini/ops_changelog.md` 并准备记录。
+1. **架构感知**：检测 `.gemini/global_standard.md` 与 `link.json`。
+   - **汇报**：『✓ 已识别当前工作区角色为 [Foundry/Workshop]。』
+2. **状态检查**：若环境缺失核心规约，立即提示用户执行初始化。
+3. **分支校验**：确认当前不在 `main` 分支执行任务。
+4. **深度分析 `SOP_CORE_MANUAL.md`**：对齐 SOP 2.0 逻辑。
+5. **审计对齐**：定位 `.gemini/ops_changelog.md` 并准备记录。
 
 ### 1. 基础映射 (Basic Mapping)
-- [ ] 我是否已读取 `.gemini/global_standard.md`？
+- [ ] 我是否已确认当前角色 (Foundry/Workshop)？
+- [ ] 我是否已确认当前处于 Issue 分支而非 `main`？
 - [ ] 我是否已定位母库 (Foundry) 的 `patterns/` 目录？
 - [ ] 我是否已准备好通过 `meta-safe-executor` 执行写操作？
 
@@ -34,7 +38,7 @@
 
 ## 🚦 快速操作看板 (Rapid Action Dashboard)
 
-作为 AI 引擎，你可以通过以下指令链快速响应驾驶员（用户）的需求：
+作为 AI 引擎，你必须严格遵循 [**12 步工业级操作协议**](./GETTING_STARTED.md#🚦-生产生命周期-the-12-step-protocol)。
 
 ### 1. 治理与生命周期 (OpenSpec)
 - **发起提案**：使用 `/opsx:propose <name>` 启动任务生命周期。

@@ -1,22 +1,26 @@
-# AI AGENTS PROTOCOL
+# AI AGENTS PROTOCOL (SOP 2.0)
 
 > **"This repository is SOP-governed. Human is the Driver, AI is the Engine."**
 
-If you are an AI agent (Gemini, Cursor, Claude Code, etc.) entering this workspace for the first time or in a new session, you **MUST** follow these steps to align with the protocols:
+If you are an AI agent (Gemini, Cursor, Claude Code, etc.) entering this workspace, you **MUST** align your execution with the YOU-DRIVE-SOP 2.0 framework.
 
-### 1. Mandatory Context Alignment
-- **Primary Source**: Read [GEMINI.md](./GEMINI.md) immediately.
-- **Full Governance**: Refer to [SOP_CORE_MANUAL.md](./SOP_CORE_MANUAL.md) for detailed mechanics.
+### 1. The Three-Layer Mental Model
+You operate within three distinct physical layers:
+1. **The Foundry (Logic Anchor)**: Your source of truth (.gemini/global_standard.md).
+2. **The Change (Power Heart)**: Your execution flow (/opsx:propose -> tasks.md).
+3. **The Assets (Intelligence)**: Your final output (patterns/ + skills).
 
-### 2. Boot Sequence
-You are required to:
-1. Identify if you are in a **Foundry** (Mother-Base) or **Workshop** (Sub-Project).
-2. Read `.gemini/global_standard.md` to align with the "Constitution".
-3. Report your alignment status to the user before taking any action.
+### 2. Critical Boot Sequence
+Before taking any action, you are required to:
+1. Identify your role: **Foundry (Mother-Base)** or **Workshop (Sub-Project)**.
+2. Verify your branch: Ensure you are on an `issue-N` branch (DO NOT work on `main`).
+3. Align with the [**12-Step Industrial Protocol**](./GETTING_STARTED.md#🚦-生产生命周期-the-12-step-protocol).
+4. Report your role and alignment status to the Driver.
 
-### 3. Prohibited Behaviors
-- **NO SIMULATION**: Do not pretend to perform tasks. Every action must be physical.
-- **AUDIT FIRST**: Do not modify files without updating `.gemini/ops_changelog.md`.
+### 3. Absolute Prohibitions
+- **NO SIMULATION**: Every task must result in real physical file changes.
+- **AUDIT FIRST**: No file modifications without a Markdown table entry in `.gemini/ops_changelog.md`.
+- **TDD ONLY**: Write the test first. If you fail this, you must delete the code and restart.
 
 ---
-*Follow the rules. Master the intelligence.*
+*Follow the protocols. Master the intelligence.*

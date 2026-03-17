@@ -1,5 +1,14 @@
 ## ADDED Requirements
 
+### Requirement: 执行流标准化 (12-Step Protocol)
+所有 AI 任务的实施 SHALL 严格遵循 [**GETTING_STARTED.md**](../../GETTING_STARTED.md#🚦-生产生命周期-the-12-step-protocol) 中定义的 12 步工业级协议。
+- **强制拓扑**：必须按照 Propose -> Apply -> Distill -> Archive 的顺序执行物理动作。
+- **自检门禁**：任务实施前必须勾选“Mandatory Setup”中的自检项。
+
+#### Scenario: 12 步协议执行
+- **WHEN** AI 开始执行任何 Apply 动作
+- **THEN** 必须首先通读任务清单中的 Setup 章节并报告其物理对齐结果。
+
 ### Requirement: 环境指纹识别 (workshop-initializing)
 子库对齐 SHALL 包含链路持久化、规约同步与高可见性的交互引导。
 - **物理链路**：必须在子库创建 `.gemini/link.json` 记录母库绝对路径。

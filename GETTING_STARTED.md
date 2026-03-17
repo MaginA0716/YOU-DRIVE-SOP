@@ -10,29 +10,29 @@
 
 1.  **Clone 本库 (母库)**：
     ```bash
-    git clone <foundry-repo-url> foundry
+    git clone git@github.com:catx1726/YOU-DRIVE-SOP.git foundry
     ```
 2.  **全局安装 OpenSpec**：
     ```bash
-    npm install -g @google/openspec
+    npm install -g @fission-ai/openspec@latest
     ```
 3.  **子库初始化引擎**：进入业务项目，执行：
     ```bash
     openspec init
     ```
-    *✓ 物理产出：生成 `openspec/config.yaml`（初始为空白文件）。*
+    _✓ 物理产出：生成 `openspec/config.yaml`（初始为空白文件）。_
 4.  **子库物理对齐 (Handshake)**：在子库执行：
     ```bash
     activate_skill workshop-initializing
     ```
-    *✓ 逻辑：建立物理链路 (Junction)，将母库的以下资产挂载至子库：*
+    _✓ 逻辑：建立物理链路 (Junction)，将母库的以下资产挂载至子库：_
     - `openspec\config.yaml`：读取母库 `config_foundry.yaml` 并 Deep Merge。
     - `openspec\schemas\`：同步全量协议模板。
     - `openspec\specs\`：递归同步全量治理规约。
     - `GEMINI.md`：注入「🚀 快速操作看板」。
     - `AGENTS.md` & `global_standard.md`：同步代理定义与物理宪法。
     - `.gemini\skills` & `patterns/`：挂载全量技能与图纸库。
-    - *链路存根：生成 `.gemini/link.json` 记录母库物理绝对路径。*
+    - _链路存根：生成 `.gemini/link.json` 记录母库物理绝对路径。_
 
 ---
 
@@ -45,34 +45,30 @@
     ```bash
     gh issue create --template feature_template.md
     ```
-    *获得 Issue ID（如 #27）。*
+    _获得 Issue ID（如 #27）。_
 3.  **创建分支**：基于 `main` 切出：
     ```bash
     git checkout main; git pull; git checkout -b issue-27
     ```
-    *⚠️ 严禁在 main 直接操作。*
-4.  **细化任务**：使用 `/opsx:propose` 将需求拆分为 `proposal -> design -> tasks`。
-    *⚠️ 强制项：`tasks.md` 必须自动包含 `## 1. 规约与环境自检 (Mandatory Setup)`。*
+    _⚠️ 严禁在 main 直接操作。_
+4.  **细化任务**：使用 `/opsx:propose` 将需求拆分为 `proposal -> design -> tasks`。 _⚠️ 强制项：`tasks.md` 必须自动包含 `## 1. 规约与环境自检 (Mandatory Setup)`。_
 5.  **执行任务**：使用 `/opsx:apply` 根据任务清单按部就班地编写代码。
 6.  **快照审计 (Safe Lock)**：任何涉及文件修改的指令，操作前激活：
     ```bash
     activate_skill meta-safe-executor
     ```
-    *✓ 物理记录：在 `.gemini/ops_changelog.md` 中以 Markdown 表格记录意图与 Undo_CMD。*
+    _✓ 物理记录：在 `.gemini/ops_changelog.md` 中以 Markdown 表格记录意图与 Undo_CMD。_
 7.  **质量检查 (Verify)**：执行：
     ```bash
     /opsx:verify
     ```
-    *根据 specs/*.md 中定义的 Scenario (####) 逐项核对物理产出。*
-8.  **任务测试 (TDD)**：执行 `activate_skill test-driven-development`。
-    *铁律：先写失败测试，见证失败后再编写生产逻辑。*
-9.  **资产提纯 (Distill)**：**[归档前置]** 激活 `activate_skill meta-distiller`。
-    *✓ 物理产出：将通用逻辑提取至 `.gemini/distill_stage/`，确保“三件套”齐备。*
+    _根据 specs/_.md 中定义的 Scenario (####) 逐项核对物理产出。\*
+8.  **任务测试 (TDD)**：执行 `activate_skill test-driven-development`。 _铁律：先写失败测试，见证失败后再编写生产逻辑。_
+9.  **资产提纯 (Distill)**：**[归档前置]** 激活 `activate_skill meta-distiller`。 _✓ 物理产出：将通用逻辑提取至 `.gemini/distill_stage/`，确保“三件套”齐备。_
 10. **归档任务**：使用 `/opsx:archive`。
     - **治理分流**：涉及规约/技能的变更移入 `openspec/changes/archive/governance/`。
     - **日志入库**：将操作日志移至 `openspec/operations/archive/<YYYY-MM-DD-name>/`。
-11. **元技能编写**：激活 `activate_skill writing-skills`。
-    *根据提炼的内容在母库 `.gemini/skills/` 下编写对应的 Skill 手册。*
+11. **元技能编写**：激活 `activate_skill writing-skills`。 _根据提炼的内容在母库 `.gemini/skills/` 下编写对应的 Skill 手册。_
 12. **合并与闭环**：使用 GitHub CLI 处理：
     ```bash
     gh pr create --body "..."
@@ -80,4 +76,22 @@
     ```
 
 ---
-*YOU-DRIVE-SOP - 驱动规约，掌握智力。*
+
+## 🛠️ 故障排除 (Troubleshooting)
+
+### 1. Windows 权限错误 (Access Denied / Error 5)
+
+在执行 `workshop-initializing` 建立物理链路时，若遇到权限报错：
+
+- **原因**：Windows 限制非管理员创建符号链接。
+- **方案**：进入 Windows **设置 > 隐私和安全性 > 面向开发人员**，开启 **“开发人员模式”**。
+
+### 2. 路径感应失败 (Path Discovery)
+
+若 AI 无法自动定位母库：
+
+- **方案**：手动在子库根目录创建 `.gemini/link.json`，内容为：`{"foundry_root": "C:\\绝对路径\\TO\\FOUNDRY"}`。
+
+---
+
+_YOU-DRIVE-SOP - 驱动规约，掌握智力。_
